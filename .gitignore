@@ -1,6 +1,7 @@
 # Django #
 robotics_backend/robotics_website/robotics/__pycache__
 robotics_backend/robotics_website/robotics_website/__pycache__
+robotics_backend/robotics_website/robotics/migrations/__pycache__
 robotics_backend/robotics_website/db.sqlite3
 
 
