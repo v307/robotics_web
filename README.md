@@ -46,6 +46,12 @@ Here are some resources to help you get started with the tools used in this mono
 
 > This guide explains how to set up and run the Django backend for the project.
 
+### Switch to the backend code and make sure python is installed
+
+```sh
+    cd robotics_backend/robotics_website
+```
+
 ### Create a Virtual Environment
 
 It’s best practice to use a virtual environment for dependencies.
