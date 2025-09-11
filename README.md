@@ -24,7 +24,7 @@
 pnpm install
 ```
 
-# Start the development server with auto-reloading and an instant preview
+### Start the development server with auto-reloading and an instant preview
 
 ```
 pnpm dev
@@ -38,11 +38,9 @@ Here are some resources to help you get started with the tools used in this mono
 - [pnpm CLI Reference](https://pnpm.io/cli)
 - [Vite](https://vite.dev/guide/) – build tool that aims to provide a faster and leaner development experience for modern web projects
 
-
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-# Running locally Django backend
+## Running locally Django backend
 
 > This guide explains how to set up and run the Django backend for the project.
 
@@ -58,6 +56,8 @@ It’s best practice to use a virtual environment for dependencies.
 
 ```sh
 python -m venv venv
+# or 
+python3 -m venv venv
 ```
 
 ### Activate it
@@ -82,15 +82,6 @@ python -m venv venv
   pip install -r requirements.txt
 ```
 
-### Database Permissions
-
-- Make sure db.sqlite3 has write access.
-- For local development, you can allow all users to read, write  and execute (:warning: use with caution):
-
-```sh
-  chmod 777 db.sqlite3
-```
-
 ### Run Database Migrations
 
 - Create the necessary tables in the SQLite database:
@@ -98,6 +89,14 @@ python -m venv venv
 ```sh
   python manage.py migrate
 ```
+
+- Database Permissions
+  - Once the above command succeed it will create a `db.sqlite3` file, Make sure it has write access.
+  - For local development, you can allow all users to read, write  and execute (:warning: use with caution):
+
+      ```sh
+       chmod 777 db.sqlite3
+      ```
 
 - (Optional) Inspect the Database
 You can use SQLite Studio or any SQLite browser to open db.sqlite3.
