@@ -1,0 +1,17 @@
+*.log
+node_modules
+/coverage
+public/css
+public/build
+/dist
+/logs
+/public/static/locales/xx
+.DS_Store
+.env
+.vscode
+/certs/
+certs/
+/*.pem
+.npmrc
+.idea
+
