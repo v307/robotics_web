@@ -14,13 +14,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-import django
-
-
+from django.contrib import admin
+from django.urls import path, include
 from django.shortcuts import redirect
 
 urlpatterns = [
+    # Redirect root URL to your React frontend
     path("", lambda request: redirect("https://robotics-web-skq1.vercel.app")),
+    
+    # Django admin
     path("admin/", admin.site.urls),
-    path("api/", include("your_api_app.urls")),
+    
+    # API routes
+    path("api/", include("your_api_app.urls")),  # Replace with your actual API app
 ]
