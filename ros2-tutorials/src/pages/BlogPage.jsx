@@ -4,6 +4,7 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export default function BlogDetail() {
   const { id } = useParams();
@@ -143,17 +144,22 @@ export default function BlogDetail() {
             <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20 overflow-hidden">
               <div className="prose prose-lg prose-slate max-w-none p-8 md:p-12">
                 <ReactMarkdown
+                  remarkPlugins={[remarkGfm]} // ✅ Add this plugin
                   components={{
-                    h1: ({children}) => <h1 className="text-3xl font-bold text-slate-800 mb-6 mt-8 first:mt-0">{children}</h1>,
-                    h2: ({children}) => <h2 className="text-2xl font-bold text-slate-800 mb-4 mt-8">{children}</h2>,
-                    h3: ({children}) => <h3 className="text-xl font-bold text-slate-800 mb-3 mt-6">{children}</h3>,
-                    p: ({children}) => <p className="text-slate-700 leading-relaxed mb-6">{children}</p>,
-                    code: ({children}) => <code className="bg-slate-100 text-slate-800 px-2 py-1 rounded font-mono text-sm">{children}</code>,
-                    pre: ({children}) => <pre className="bg-slate-900 text-slate-100 p-6 rounded-xl overflow-x-auto mb-6">{children}</pre>,
-                    blockquote: ({children}) => <blockquote className="border-l-4 border-blue-500 pl-6 italic text-slate-600 my-6">{children}</blockquote>,
-                    ul: ({children}) => <ul className="list-disc list-inside space-y-2 mb-6 text-slate-700">{children}</ul>,
-                    ol: ({children}) => <ol className="list-decimal list-inside space-y-2 mb-6 text-slate-700">{children}</ol>,
-                    a: ({href, children}) => <a href={href} className="text-blue-600 hover:text-blue-700 underline transition-colors duration-300">{children}</a>
+                    h1: ({ children }) => <h1 className="text-3xl font-bold text-slate-800 mb-6 mt-8 first:mt-0">{children}</h1>,
+                    h2: ({ children }) => <h2 className="text-2xl font-bold text-slate-800 mb-4 mt-8">{children}</h2>,
+                    h3: ({ children }) => <h3 className="text-xl font-bold text-slate-800 mb-3 mt-6">{children}</h3>,
+                    p: ({ children }) => <p className="text-slate-700 leading-relaxed mb-6">{children}</p>,
+                    code: ({ children }) => <code className="bg-slate-100 text-slate-800 px-2 py-1 rounded font-mono text-sm">{children}</code>,
+                    pre: ({ children }) => <pre className="bg-slate-900 text-slate-100 p-6 rounded-xl overflow-x-auto mb-6">{children}</pre>,
+                    blockquote: ({ children }) => <blockquote className="border-l-4 border-blue-500 pl-6 italic text-slate-600 my-6">{children}</blockquote>,
+                    ul: ({ children }) => <ul className="list-disc list-inside space-y-2 mb-6 text-slate-700">{children}</ul>,
+                    ol: ({ children }) => <ol className="list-decimal list-inside space-y-2 mb-6 text-slate-700">{children}</ol>,
+                    a: ({ href, children }) => <a href={href} className="text-blue-600 hover:text-blue-700 underline transition-colors duration-300">{children}</a>,
+                    table: ({ children }) => <table className="table-auto border border-slate-300 mb-6">{children}</table>,
+                    th: ({ children }) => <th className="border border-slate-300 px-4 py-2 bg-slate-100">{children}</th>,
+                    td: ({ children }) => <td className="border border-slate-300 px-4 py-2">{children}</td>,
+                    tr: ({ children }) => <tr>{children}</tr>,
                   }}
                 >
                   {blog.content || "This article content is being prepared. Please check back soon for the complete tutorial."}

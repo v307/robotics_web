@@ -81,6 +81,34 @@ export default function Resources() {
     }
   ];
 
+  // Premium Packages
+  const premiumPackages = [
+    {
+      title: "ROS 2 Differential Drive Package",
+      description: "Pre-built ROS 2 package with URDF, Gazebo simulation, and navigation stack for differential drive robots.",
+      price: "$29",
+      badge: "Premium",
+      link: "#", // TODO: Replace with Gumroad/Stripe checkout link
+      rating: 5
+    },
+    {
+      title: "ROS 2 Manipulation Package",
+      description: "Ready-to-use ROS 2 MoveIt! package with Panda manipulator, controllers, and Gazebo integration.",
+      price: "$39",
+      badge: "Pro",
+      link: "#",
+      rating: 5
+    },
+    {
+      title: "Complete ROS 2 Simulation Suite",
+      description: "Bundle of ROS 2 navigation, manipulation, and custom robot simulation packages with lifetime updates.",
+      price: "$99",
+      badge: "Bundle",
+      link: "#",
+      rating: 5
+    },
+  ];
+
   const filteredResources = selectedCategory === 'all' 
     ? resources 
     : resources.filter(resource => resource.category === selectedCategory);
@@ -232,6 +260,48 @@ export default function Resources() {
         </div>
       </section>
 
+      {/* Premium Packages Section */}
+      <section className="px-6 pb-20">
+        <div className="max-w-7xl mx-auto text-center mb-12">
+          <span className="bg-yellow-200 text-yellow-800 px-4 py-1 rounded-full font-medium">Premium</span>
+          <h2 className="text-4xl font-bold text-slate-800 mt-4 mb-3">Premium ROS 2 Packages</h2>
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+            Access ready-to-use ROS 2 packages for simulation, navigation, and manipulation. 
+            Save weeks of development time with production-ready code.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {premiumPackages.map((pkg, index) => (
+            <div
+              key={index}
+              className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl p-6 transition-all duration-500 transform hover:-translate-y-2 border border-white/20"
+            >
+              <span className="inline-block bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-bold px-3 py-1 rounded-full">
+                {pkg.badge}
+              </span>
+              <h3 className="text-xl font-bold text-slate-800 mt-4 mb-2 group-hover:text-blue-600 transition-colors">
+                {pkg.title}
+              </h3>
+              <p className="text-slate-600 text-sm mb-4">{pkg.description}</p>
+              <div className="flex items-center justify-between">
+                <span className="text-lg font-bold text-slate-800">{pkg.price}</span>
+                <a
+                  href={pkg.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold px-5 py-2 rounded-2xl shadow hover:shadow-lg transition"
+                >
+                  Buy Now
+                </a>
+              </div>
+              <div className="flex mt-3 text-yellow-400">
+                {renderStars(pkg.rating)}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="px-6 pb-20">
         <div className="max-w-4xl mx-auto">
@@ -257,10 +327,6 @@ export default function Resources() {
                 View Tutorials
               </a>
             </div>
-            
-            {/* Decorative Elements */}
-            <div className="absolute top-6 right-6 w-12 h-12 bg-white/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div className="absolute bottom-6 left-6 w-16 h-16 bg-white/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100"></div>
           </div>
         </div>
       </section>
